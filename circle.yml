@@ -1,0 +1,33 @@
+version: 2
+jobs:
+    build:
+      docker:
+        - image: circleci/php:7
+
+      steps:
+        - checkout
+        - run: bin/behat -V
+
+    database_scripts:
+      docker:
+        - image: circleci/php:7
+      steps:
+        - checkout
+        - run:
+            command: bin/behat -c config/single.conf.yml --tags '@database'
+
+    test_scripts:
+      docker:
+        - image: circleci/php:7
+      steps:
+        - checkout
+        - run:
+            command: echo "bye world"
+
+    completion:
+      docker:
+        - image: circleci/php:7
+      steps:
+        - run:
+            name: Clean up old keys
+            command: echo "All passed."
