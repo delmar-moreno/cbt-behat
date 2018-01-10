@@ -30,6 +30,6 @@ default:
                     # $ php run-parallel.php config/<filename>.yml
                     -
                         os_api_name: "Win10"
-                        browser_api_name: "Edge20"
+                        browser_api_name: "Chrome56x64"
                         resolution: "1920x1080"
                 

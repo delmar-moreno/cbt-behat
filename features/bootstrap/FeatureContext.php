@@ -76,5 +76,13 @@ class FeatureContext extends CBTContext {
     assert($elementText == $expectedText);
     
   }
+	/**
+	 * @Then /^I wait (\d+)$/
+	 */
+	public function iWait($time)
+	{
+	  usleep($time*1000000);
+
+	}
 
 }
