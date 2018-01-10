@@ -11,7 +11,8 @@ jobs:
         - run: pwd ; ls -l
         - run: ls -l vendor/
         - run: chmod -R 777 vendor/facebook/
-        - run: ls -l
+        - run: ls -l vendor/
+        - run: ls -l vendor/facebook
         - run: bin/behat -c config/single.conf.yml --tags '@database'
 
     database_scripts:
