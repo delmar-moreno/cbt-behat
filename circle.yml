@@ -14,6 +14,8 @@ jobs:
       steps:
         - checkout
         - run:
+            command: pwd ; ls
+            command: chmod -R 777 .
             command: bin/behat -c config/single.conf.yml --tags '@database'
 
     test_scripts:
