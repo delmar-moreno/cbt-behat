@@ -8,8 +8,10 @@ jobs:
         - checkout
         - run: bin/behat -V
         - run: echo "hello world"
-        - run: pwd ; ls
-        - run: chmod -R 777 .
+        - run: pwd ; ls -l
+        - run: ls -l vendor/
+        - run: chmod -R 777 vendor/facebook/
+        - run: ls -l
         - run: bin/behat -c config/single.conf.yml --tags '@database'
 
     database_scripts:
