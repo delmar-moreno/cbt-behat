@@ -7,6 +7,10 @@ jobs:
       steps:
         - checkout
         - run: bin/behat -V
+        - run: echo "hello world"
+        - run: pwd ; ls
+        - run: chmod -R 777 .
+        - run: bin/behat -c config/single.conf.yml --tags '@database'
 
     database_scripts:
       docker:
@@ -16,7 +20,7 @@ jobs:
         - run: echo "hello world"
         - run: pwd ; ls
         - run: chmod -R 777 .
-#            command: bin/behat -c config/single.conf.yml --tags '@database'
+        - run: bin/behat -c config/single.conf.yml --tags '@database'
 
     test_scripts:
       docker:
@@ -34,14 +38,14 @@ jobs:
             name: Clean up old keys
             command: echo "All passed."
 
-workflows:
-  version: 2
-  build_test:
-    jobs:
-      - build
-      - database_scripts:
-          requires:
-            - build
-      - completion:
-          requires:
-            - database_scripts
+#workflows:
+#  version: 2
+#  build_test:
+#    jobs:
+#      - build
+#      - database_scripts:
+#          requires:
+#            - build
+#      - completion:
+#          requires:
+#            - database_scripts
