@@ -14,6 +14,7 @@ jobs:
       steps:
         - checkout
         - run:
+            command: echo "hello world"
             command: pwd ; ls
             command: chmod -R 777 .
             command: bin/behat -c config/single.conf.yml --tags '@database'
