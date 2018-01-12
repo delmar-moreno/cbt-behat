@@ -6,7 +6,7 @@ Feature: Reindex
     Given I am on "http://cleanup-boisset.pantheonsite.io/user/login"
     When I fill in "#edit-name" with "mmoreno@gsati.com"
     When I fill in "#edit-pass" with "Access4GSAT"
-    When I press "#edit-edit-submit"
+    When I press "#edit-submit"
     Given I am on "http://cleanup-boisset.pantheonsite.io/admin/config/search/pantheon/schema"
     When I press "#edit-submit"
     Given I am on "http://cleanup-boisset.pantheonsite.io/admin/config/search/search_api/index/product_display"
