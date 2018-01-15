@@ -81,7 +81,18 @@ class FeatureContext extends CBTContext {
 	 */
 	public function iWait($time)
 	{
-	  usleep($time*1000000);
+		$time_start = time();
+		$limit = $time_start + $time;
+		if ($time >= 600) {
+			while (time() !== $limit) {
+				if ((time() - $time_start) >= 120) {
+					print "Still waiting...\n";
+					$time_start = time();
+				}
+			}
+		} else {
+			usleep($time*1000000);
+		}
 
 	}
 
